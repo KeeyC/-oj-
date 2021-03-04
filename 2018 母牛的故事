@@ -1,0 +1,43 @@
+//母牛的故事
+#include<iostream>
+using namespace std;
+int cow(int n)
+{
+	int smallcow = 0;
+	int bigcow = 1;
+	int year ;
+	int newcow = 0;
+	int sc[4] = { 0 };//小牛数量保存数组
+	for (year = 1;year <= n;year++)
+	{
+		if (year == 1)
+			newcow = 0;
+		else
+		{
+			newcow = bigcow;
+			smallcow += newcow;
+			sc[(year - 1) % 4] = newcow;//将每年出生的小牛存入数组中
+			if (year >= 4)
+			{
+				bigcow += sc[year % 3];
+				smallcow -= sc[year %3];
+			}
+		}
+	}
+	return bigcow+smallcow;
+}
+void show(int shownum)
+{
+	cout << shownum;
+}
+int main()
+{
+	int n;
+	while (cin >> n)
+	{
+		int num = cow(n);
+		show(num);
+		if (n == 0)break;
+	}
+	return 0;
+}
