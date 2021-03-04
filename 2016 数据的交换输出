@@ -1,0 +1,29 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+void exchange(int n)
+{
+	int* a = new int[n];
+	int ex = n;
+	for (int i = 0;i < n;i++)
+	{
+		cin >> a[i];
+	}
+	sort(a, a + ex);
+	for (int j = 0;j < ex;j++)
+	{
+		cout << *(a + j) << " ";
+	}
+}
+
+int main()
+{
+	int n;
+	while (cin >> n)
+	{
+		if (n == 0) break;
+		else
+			exchange(n);
+	}
+	return 0;
+}
